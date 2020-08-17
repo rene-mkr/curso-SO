@@ -11,15 +11,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-	
-	int num=num_cpus();
-	
-	printf("Encontre %d cpus");
-
-	return EXIT_SUCCESS;
-}
-
 int num_cpus() {
 
 	unsigned  int	eax=11,ebx=0,ecx=1,edx=0;
@@ -36,4 +27,13 @@ int num_cpus() {
 	
 	return eax;
 	
+}
+
+int main(void) {
+	
+	int num=num_cpus();
+	
+	printf("Encontre %d cpus",num);
+
+	return EXIT_SUCCESS;
 }
