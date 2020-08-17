@@ -1,10 +1,10 @@
 /*
  ============================================================================
- Name        : Test.c
- Author      : 
+ Name        : find_cpus.c
+ Author      : https://stackoverflow.com/questions/4586405/how-to-get-the-number-of-cpus-in-linux-using-c
  Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Copyright   : No se conoce
+ Description : Encontrar el numero de CPUs en el procesador
  ============================================================================
  */
 
@@ -12,9 +12,15 @@
 #include <stdlib.h>
 
 int main(void) {
-//	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
-//	return EXIT_SUCCESS;
+	
+	int num=num_cpus();
+	
+	printf("Encontre %d cpus");
 
+	return EXIT_SUCCESS;
+}
+
+int num_cpus() {
 
 	unsigned  int	eax=11,ebx=0,ecx=1,edx=0;
 	asm
@@ -27,5 +33,7 @@ int main(void) {
 	:  "0"  ( eax ) ,  "2"  ( ecx )
 	:  ) ;
 	printf("Cores :  % d\nThreads :  % d\nActual  thread :  % d\n", eax , ebx , edx);
-
+	
+	return eax;
+	
 }
