@@ -1,2 +1,2 @@
-# test
-Repositorio de prueba
+# Curso SO
+Repositorio de código para Sistemas Operativos
