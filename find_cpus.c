@@ -25,7 +25,7 @@ int num_cpus() {
 	:  ) ;
 	printf("Cores :  % d\nThreads :  % d\nActual  thread :  % d\n", eax , ebx , edx);
 	
-	return eax;
+	return eax*ebx;
 	
 }
 
@@ -33,7 +33,7 @@ int main(void) {
 	
 	int num=num_cpus();
 	
-	printf("Encontre %d cpus",num);
+	printf("Encontre %d cpus \n",num);
 
 	return EXIT_SUCCESS;
 }
