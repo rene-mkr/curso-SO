@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 	/* create the thread 1*/
 	pthread_create(&tid, &attr, runner, &lim1);
 
-	/* create the thread 1*/
+	/* create the thread 2*/
 	pthread_create(&tid, &attr, runner, &lim1);
 	
 	/* now wait for the thread to exit */
