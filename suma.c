@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int sum[20]; /* this data is shared by the thread(s) */
+int sum; /* this data is shared by the thread(s) */
 void* runner(void *param); /* the thread */
 int main(int argc, char *argv[]) {
 	pthread_t tid; /* the thread identifier */
