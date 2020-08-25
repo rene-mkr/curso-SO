@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/sysinfo.h>
 
 int num_cpus() {
 
@@ -29,9 +30,18 @@ int num_cpus() {
 	
 }
 
+int get_ncpus() {
+	// Return processors available
+	return get_nprocs();
+}
+
 int main(void) {
 	
 	int num=num_cpus();
+	
+	printf("Encontre %d cpus \n",num);
+
+	num=get_ncpus();
 	
 	printf("Encontre %d cpus \n",num);
 
