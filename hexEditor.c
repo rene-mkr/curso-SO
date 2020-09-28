@@ -34,12 +34,12 @@ char *hazLinea(char *base, int dir) {
 	return(strdup(linea));
 }
 
-int mapFile(char *filePath) {
+char *mapFile(char *filePath) {
     /* Abre archivo */
     int fd = open(filePath, O_RDONLY);
     if (fd == -1) {
     	perror("Error abriendo el archivo");
-	    return(EXIT_FAILURE);
+	    return(NULL);
     }
 
     /* Mapea archivo */
@@ -51,10 +51,10 @@ int mapFile(char *filePath) {
     if (map == MAP_FAILED) {
     	close(fd);
 	    perror("Error mapeando el archivo");
-	    return(EXIT_FAILURE);
+	    return(NULL);
     }
 
-  return 0;
+  return map;
 }
 
 int leeChar() {
@@ -82,7 +82,8 @@ int main() {
     noecho();
     
     /* Lee archivo */
-    if (mapFile( "DISK1.DSK") != 0) {
+    char *map = mapFile( "DISK1.DSK");
+    if (map == NULL) {
       exit(EXIT_FAILURE);
       }
     
