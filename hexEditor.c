@@ -95,8 +95,15 @@ int main() {
     refresh();
 
     leeChar();
+    endwin();
 
-    return(0);
+    if (munmap(map, fs) == -1) {
+      perror("Error al desmapear");
+    }
+    close(fd);
+    
+   return 0;
+
 }
     
 
