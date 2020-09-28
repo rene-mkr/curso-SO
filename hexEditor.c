@@ -8,6 +8,10 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
+/* Variable global para mejor legibilidad */
+int fd; // Archivo a leer
+
+
 char *hazLinea(char *base, int dir) {
 	char linea[100]; // La linea es mas pequeña
 	int o=0;
@@ -36,7 +40,7 @@ char *hazLinea(char *base, int dir) {
 
 char *mapFile(char *filePath) {
     /* Abre archivo */
-    int fd = open(filePath, O_RDONLY);
+    fd = open(filePath, O_RDONLY);
     if (fd == -1) {
     	perror("Error abriendo el archivo");
 	    return(NULL);
@@ -97,7 +101,7 @@ int main() {
     leeChar();
     endwin();
 
-    if (munmap(map, fs) == -1) {
+    if (munmap(map, fd) == -1) {
       perror("Error al desmapear");
     }
     close(fd);
