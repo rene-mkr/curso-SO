@@ -8,7 +8,7 @@ int getNext(int cluster, int base) {
 	printf("%02x:",b1);
 	b2 = map[base+offset+1];
 	printf("%02x\n",b2);
-	int result = b1 | b2<<8;
+	int result = b1 | b2<<8; // Los bits mas significativos van al final
 
 	if(flag) {
 		result >>= 4;
