@@ -14,3 +14,4 @@ int main() {
         }
     }
     printf("Hay %d números primos",x);
+}
